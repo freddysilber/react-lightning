@@ -2,8 +2,10 @@
   "name": "salesforce-app",
   "private": true,
   "version": "1.0.0",
-  "description": "Salesforce App",
+  "description": "React on Salesforce boilerplate",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "deploy": "npm run build && sfdx force:source:push",
     "lint": "npm run lint:lwc",
     "lint:lwc": "eslint force-app/main/default/lwc",
     "test": "npm run test:unit",
@@ -15,11 +17,25 @@
     "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\""
   },
   "devDependencies": {
-    "@prettier/plugin-xml": "^0.7.0",
     "@salesforce/eslint-config-lwc": "^0.4.0",
     "@salesforce/sfdx-lwc-jest": "^0.7.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "eslint": "^5.16.0",
-    "prettier": "^1.19.1",
-    "prettier-plugin-apex": "^1.0.0"
+    "babel-loader": "^8.0.0",
+    "css-loader": "^1.0.0",
+    "http-server": "^0.11.1",
+    "postcss-loader": "^2.1.6",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "lightning-container": "^1.0.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   }
 }
