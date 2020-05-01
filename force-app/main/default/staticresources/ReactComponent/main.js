@@ -7640,8 +7640,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _TerminalScreen_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
 /* harmony import */ var _Counter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(22);
-/* harmony import */ var _components_AccountsList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(23);
-/* harmony import */ var _containers_AccountContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(25);
+/* harmony import */ var _containers_AccountContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(23);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -7673,7 +7672,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -7697,8 +7695,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     });
 
     _this.state = {
-      message: "",
-      accounts: []
+      message: ""
     };
     return _this;
   }
@@ -7706,25 +7703,14 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.addMessageHandler(this.messageRecievedHandler); // LCC.callApex('AccountService.getAccounts', (result, event) => this.handleApexRequest(result, event)), { escape: true }
-    } // handleApexRequest = (result, event) => {
-    //     console.log(result, event)
-    //     if (event.statusCode >= 200 && event.statusCode < 300) {
-    //         this.setState({
-    //             accounts: result
-    //         })
-    //     } else {
-    //         console.error('There was an error getting data from apex', event)
-    //     }
-    // }
-
+      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.addMessageHandler(this.messageRecievedHandler);
+    }
   }, {
     key: "render",
-    // renderAccounts = () => this.state.accounts.map(a => <div key={a.Id}>{a.Name}</div>)
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here is a test title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TerminalScreen_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: this.state.message
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Counter__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_AccountContainer__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Counter__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_AccountContainer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
   }]);
 
@@ -8560,58 +8546,12 @@ var Counter = /*#__PURE__*/function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Account__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
-var _this = undefined;
-
-
-
-
-var AccountsList = function AccountsList() {
-  renderAccounts = function renderAccounts() {
-    return _this.props.accounts.map(function (account) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Account__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        key: account.Id,
-        account: account
-      });
-    });
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, _this.renderAccounts());
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (AccountsList);
-
-/***/ }),
-/* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var Account = function Account(account) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, account.Id, " - ", account.Name);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Account);
-
-/***/ }),
-/* 25 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AccountContainer; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Account__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
-/* harmony import */ var lightning_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var lightning_container__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lightning_container__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_AccountsList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(23);
+/* harmony import */ var lightning_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var lightning_container__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lightning_container__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_AccountsList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(24);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8635,7 +8575,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -8676,7 +8615,7 @@ var AccountContainer = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      lightning_container__WEBPACK_IMPORTED_MODULE_2___default.a.callApex('AccountService.getAccounts', function (result, event) {
+      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.callApex('AccountService.getAccounts', function (result, event) {
         return _this2.handleApexRequest(result, event);
       }), {
         escape: true
@@ -8684,9 +8623,9 @@ var AccountContainer = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "render",
-    // renderAccounts = () => this.state.accounts.map(a => <Account key={a.id} account={a} />)
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "AccountContainer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AccountsList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      console.log('account container', this.state.accounts);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "AccountContainer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AccountsList__WEBPACK_IMPORTED_MODULE_2__["default"], {
         accounts: this.state.accounts
       }));
     }
@@ -8696,6 +8635,51 @@ var AccountContainer = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
+
+/***/ }),
+/* 24 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Account__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
+
+
+
+var AccountsList = function AccountsList(props) {
+  console.log('account list props', props);
+
+  var renderAccounts = function renderAccounts() {
+    return props.accounts.map(function (account) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Account__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        key: account.Id,
+        account: account
+      });
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, renderAccounts);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AccountsList);
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Account = function Account(account) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, account.Id, " - ", account.Name);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Account);
 
 /***/ })
 /******/ ]);

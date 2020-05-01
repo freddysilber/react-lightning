@@ -26,6 +26,7 @@ export default class AccountContainer extends React.Component {
 	}
 
 	render() {
+		console.log('account container', this.state.accounts)
 		return (
 			<>
 				<p>AccountContainer</p>
