@@ -22,10 +22,7 @@ export default class App extends React.Component {
     }
 
     handleGetAccounts = () => {
-        LCC.callApex('AccountService.getAccounts',
-            (result, event) => {
-                console.log(result, event)
-            }), { escape: true }
+        LCC.callApex('AccountService.getAccounts', (result, event) => console.log(result, event)), { escape: true }
     }
 
     messageRecievedHandler = msg => {
