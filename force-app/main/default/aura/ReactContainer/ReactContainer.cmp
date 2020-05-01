@@ -1,9 +1,6 @@
-<aura:component controller="AccountService" implements="flexipage:availableForAllPageTypes" access="global">
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
     <!-- Register attributes -->
     <aura:attribute name="message" type="string" />
-    <aura:attribute name="accounts" type="Object[]" />
-    <!-- Register handlers -->
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
     <lightning:container class="appContainer" aura:id="jsApp" src="{!$Resource.ReactComponent + '/index.html'}" onmessage="{!c.handleMessage}" onerror="{!c.handleError}" />
 

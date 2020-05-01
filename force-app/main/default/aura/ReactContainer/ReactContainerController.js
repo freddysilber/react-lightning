@@ -1,14 +1,4 @@
 ({
-    doInit: function (component, event, helper) {
-        const action = component.get('c.getAccounts')
-        action.setCallback(this, response => {
-            if (response.getState() === 'SUCCESS') {
-                component.set('v.accounts', response.getReturnValue())
-            }
-        })
-        $A.enqueueAction(action)
-    },
-
     handleMessage: function (component, event, helper) {
         const message = event.getParams()
         component.set('v.message', message.payload.value)
