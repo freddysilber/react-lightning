@@ -1,9 +1,14 @@
 import React from 'react'
+import Account from './Account'
 
-export default class AccountsList extends React.Component {
-	render() {
-		return (
-			<h1>AccountsList</h1>
-		)
-	}
+const AccountsList = () => {
+	renderAccounts = () => this.props.accounts.map(account => <Account key={account.Id} account={account} />)
+
+	return (
+		<>
+			{this.renderAccounts()}
+		</>
+	)
 }
+
+export default AccountsList

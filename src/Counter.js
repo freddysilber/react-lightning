@@ -8,8 +8,15 @@ export default class Counter extends React.Component {
 		}
 	}
 
-	handleClick = () => {
+	handleUpvote = () => {
 		const count = this.state.count + 1
+		this.setState({
+			count: count
+		})
+	}
+
+	handleDownvote = () => {
+		const count = this.state.count - 1
 		this.setState({
 			count: count
 		})
@@ -17,10 +24,11 @@ export default class Counter extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<>
 				<h1>Count: {this.state.count}</h1>
-				<button className="slds-button" onClick={this.handleClick}>+</button>
-			</div>
+				<button className="slds-button" onClick={this.handleUpvote}>+</button>
+				<button className="slds-button" onClick={this.handleDownvote}>-</button>
+			</>
 		)
 	}
 }
