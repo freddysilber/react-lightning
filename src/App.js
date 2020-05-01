@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LCC from 'lightning-container'
 import './App.css'
 import TerminalScreen from './TerminalScreen.js'
 import Counter from './Counter'
 import AccountsList from './components/AccountsList'
 
-export default class App extends Component {
+export default class App extends React.Component {
 
     constructor(props) {
         super(props)
@@ -23,7 +23,6 @@ export default class App extends Component {
         console.log("Messaged received.")
         console.log(`Message name: ${name}`)
         console.log(`Message value: ${value}`)
-
         // Add Any Logic that should be handled here.
         this.setState({
             message: value

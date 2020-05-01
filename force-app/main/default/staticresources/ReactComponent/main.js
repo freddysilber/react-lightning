@@ -7672,8 +7672,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var App = /*#__PURE__*/function (_Component) {
-  _inherits(App, _Component);
+var App = /*#__PURE__*/function (_React$Component) {
+  _inherits(App, _React$Component);
 
   var _super = _createSuper(App);
 
@@ -7711,14 +7711,18 @@ var App = /*#__PURE__*/function (_Component) {
     key: "render",
     // The Render Functiion is what defines the markup of our component.
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here is a test title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TerminalScreen_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        style: {
+          color: 'red'
+        }
+      }, "Here is a test title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TerminalScreen_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: this.state.message
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Counter__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AccountsList__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
   }]);
 
   return App;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
 
@@ -7834,7 +7838,7 @@ exports = module.exports = __webpack_require__(16)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".h1 {\n\tcolor: dodgerblue;\n}", ""]);
 
 // exports
 

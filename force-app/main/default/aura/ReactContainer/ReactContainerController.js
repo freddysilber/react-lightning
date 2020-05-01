@@ -1,4 +1,8 @@
 ({
+    doInit: function (component, event, helper) {
+        console.log('doinit')
+    },
+
     handleMessage: function (component, event, helper) {
         var message = event.getParams()
         component.set('v.message', message.payload.value)
