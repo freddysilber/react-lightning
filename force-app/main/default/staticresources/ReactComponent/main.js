@@ -7684,12 +7684,16 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "handleGetAccounts", function () {
-      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.callApex('AccountService.getAccounts', function (result, event) {
-        console.log(result, event);
-      }), {
-        escape: true
-      };
+    _defineProperty(_assertThisInitialized(_this), "handleApexRequest", function (result, event) {
+      console.log(result, event);
+
+      if (event.statusCode >= 200 && event.statusCode < 300) {
+        _this.setState({
+          accounts: result
+        });
+      } else {
+        console.error('There was an error getting data from apex', event);
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "messageRecievedHandler", function (msg) {
@@ -7697,16 +7701,23 @@ var App = /*#__PURE__*/function (_React$Component) {
           value = msg.value;
       console.log("Messaged received.");
       console.log("Message name: ".concat(name));
-      console.log("Message value: ".concat(value)); // Add Any Logic that should be handled here.
+      console.log("Message value: ".concat(value));
 
       _this.setState({
         message: value
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "renderAccounts", function () {
+      return _this.state.accounts.map(function (a) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: a.Id
+        }, a.Name);
+      });
+    });
+
     _this.state = {
       message: "",
-      name: '',
       accounts: []
     };
     return _this;
@@ -7715,18 +7726,21 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.addMessageHandler(this.messageRecievedHandler);
-      this.handleGetAccounts();
+      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.callApex('AccountService.getAccounts', function (result, event) {
+        return _this2.handleApexRequest(result, event);
+      }), {
+        escape: true
+      };
     }
   }, {
     key: "render",
-    // The Render Functiion is what defines the markup of our component.
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here is a test title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleGetAccounts
-      }, "Get Accounts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TerminalScreen_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here is a test title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TerminalScreen_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: this.state.message
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Counter__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AccountsList__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Counter__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AccountsList__WEBPACK_IMPORTED_MODULE_5__["default"], null), this.renderAccounts());
     }
   }]);
 

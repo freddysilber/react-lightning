@@ -11,40 +11,44 @@ export default class App extends React.Component {
         super(props)
         this.state = {
             message: "",
-            name: '',
             accounts: []
         }
     }
 
     componentDidMount() {
         LCC.addMessageHandler(this.messageRecievedHandler)
-        this.handleGetAccounts()
+        LCC.callApex('AccountService.getAccounts', (result, event) => this.handleApexRequest(result, event)), { escape: true }
     }
 
-    handleGetAccounts = () => {
-        LCC.callApex('AccountService.getAccounts', (result, event) => console.log(result, event)), { escape: true }
+    handleApexRequest = (result, event) => {
+        console.log(result, event)
+        if (event.statusCode >= 200 && event.statusCode < 300) {
+            this.setState({
+                accounts: result
+            })
+        } else {
+            console.error('There was an error getting data from apex', event)
+        }
     }
 
     messageRecievedHandler = msg => {
         const { name, value } = msg
-        console.log("Messaged received.")
-        console.log(`Message name: ${name}`)
-        console.log(`Message value: ${value}`)
-        // Add Any Logic that should be handled here.
+        console.log('Messaged received.', name, value)
         this.setState({
             message: value
         })
     }
 
-    // The Render Functiion is what defines the markup of our component.
+    renderAccounts = () => this.state.accounts.map(a => <div key={a.Id}>{a.Name}</div>)
+
     render() {
         return (
             <div>
                 <h1>Here is a test title</h1>
-                <button onClick={this.handleGetAccounts}>Get Accounts</button>
                 <TerminalScreen text={this.state.message} />
                 <Counter />
                 <AccountsList />
+                {this.renderAccounts()}
             </div>
         )
     }
