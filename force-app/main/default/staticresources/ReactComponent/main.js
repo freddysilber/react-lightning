@@ -7684,6 +7684,27 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
+    _defineProperty(_assertThisInitialized(_this), "handleAccountQueryResponse", function (result, event) {
+      console.log('thing', result, event);
+
+      if (event.status) {
+        console.log(event.status, result);
+
+        _this.setState({
+          accounts: result
+        });
+      } else if (event.type === "exception") {
+        console.log(event.message + " : " + event.where);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleGetAccounts", function () {
+      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.callApex('c.AccountService.getAccounts', _this.state.name, _this.handleAccountQueryResponse, {
+        escape: true
+      });
+      console.log(_this.state);
+    });
+
     _defineProperty(_assertThisInitialized(_this), "messageRecievedHandler", function (msg) {
       var name = msg.name,
           value = msg.value;
@@ -7697,7 +7718,9 @@ var App = /*#__PURE__*/function (_React$Component) {
     });
 
     _this.state = {
-      message: ""
+      message: "",
+      name: '',
+      accounts: []
     };
     return _this;
   }
@@ -7705,17 +7728,26 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.addMessageHandler(this.messageRecievedHandler);
-    }
+      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.addMessageHandler(this.messageRecievedHandler); // this.callApex()
+      // LCC.callApex('AccountService.getAccounts',
+      //     this.state.accounts,
+      //     (result, event) => {
+      //         console.log(result, event)
+      //     }), { escape: true }
+    } // callApex() {
+    //     LCC.callApex("AccountService.getAccounts",
+    //         this.state.name,
+    //         this.handleAccountQueryResponse,
+    //         { escape: true });
+    // }
+
   }, {
     key: "render",
     // The Render Functiion is what defines the markup of our component.
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        style: {
-          color: 'red'
-        }
-      }, "Here is a test title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TerminalScreen_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here is a test title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleGetAccounts
+      }, "Get Accounts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TerminalScreen_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: this.state.message
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Counter__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AccountsList__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
