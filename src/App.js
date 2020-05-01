@@ -18,35 +18,14 @@ export default class App extends React.Component {
 
     componentDidMount() {
         LCC.addMessageHandler(this.messageRecievedHandler)
-        // this.callApex()
-        // LCC.callApex('AccountService.getAccounts',
-        //     this.state.accounts,
-        //     (result, event) => {
-        //         console.log(result, event)
-        //     }), { escape: true }
-    }
-
-    // callApex() {
-    //     LCC.callApex("AccountService.getAccounts",
-    //         this.state.name,
-    //         this.handleAccountQueryResponse,
-    //         { escape: true });
-    // }
-
-    handleAccountQueryResponse = (result, event) => {
-        console.log('thing', result, event)
-        if (event.status) {
-            console.log(event.status, result)
-            this.setState({ accounts: result });
-        }
-        else if (event.type === "exception") {
-            console.log(event.message + " : " + event.where);
-        }
+        this.handleGetAccounts()
     }
 
     handleGetAccounts = () => {
-        LCC.callApex('c.AccountService.getAccounts', this.state.name, this.handleAccountQueryResponse(), { escape: true })
-        console.log(this.state)
+        LCC.callApex('AccountService.getAccounts',
+            (result, event) => {
+                console.log(result, event)
+            }), { escape: true }
     }
 
     messageRecievedHandler = msg => {

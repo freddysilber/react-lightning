@@ -7684,25 +7684,12 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "handleAccountQueryResponse", function (result, event) {
-      console.log('thing', result, event);
-
-      if (event.status) {
-        console.log(event.status, result);
-
-        _this.setState({
-          accounts: result
-        });
-      } else if (event.type === "exception") {
-        console.log(event.message + " : " + event.where);
-      }
-    });
-
     _defineProperty(_assertThisInitialized(_this), "handleGetAccounts", function () {
-      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.callApex('c.AccountService.getAccounts', _this.state.name, _this.handleAccountQueryResponse(result, event), {
+      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.callApex('AccountService.getAccounts', function (result, event) {
+        console.log(result, event);
+      }), {
         escape: true
-      });
-      console.log(_this.state);
+      };
     });
 
     _defineProperty(_assertThisInitialized(_this), "messageRecievedHandler", function (msg) {
@@ -7728,19 +7715,9 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.addMessageHandler(this.messageRecievedHandler); // this.callApex()
-      // LCC.callApex('AccountService.getAccounts',
-      //     this.state.accounts,
-      //     (result, event) => {
-      //         console.log(result, event)
-      //     }), { escape: true }
-    } // callApex() {
-    //     LCC.callApex("AccountService.getAccounts",
-    //         this.state.name,
-    //         this.handleAccountQueryResponse,
-    //         { escape: true });
-    // }
-
+      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.addMessageHandler(this.messageRecievedHandler);
+      this.handleGetAccounts();
+    }
   }, {
     key: "render",
     // The Render Functiion is what defines the markup of our component.

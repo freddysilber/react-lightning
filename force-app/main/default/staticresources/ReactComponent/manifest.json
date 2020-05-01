@@ -2,7 +2,7 @@
 	"landing-pages": [
 		{
 			"path": "index.html",
-			"apex-controller": "c.AccountService"
+			"apex-controller": "AccountService"
 		}
 	]
 }
