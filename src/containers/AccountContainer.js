@@ -1,6 +1,7 @@
 import React from 'react'
 import LCC from 'lightning-container'
 import AccountsList from '../components/AccountsList'
+import { Button } from '@salesforce/design-system-react'
 
 export default class AccountContainer extends React.Component {
 	constructor() {
@@ -31,6 +32,7 @@ export default class AccountContainer extends React.Component {
 			<>
 				<p>AccountContainer</p>
 				<AccountsList accounts={this.state.accounts} />
+				<Button label="reLoad Accounts" />
 			</>
 		)
 	}
