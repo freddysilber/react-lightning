@@ -1,4 +1,4 @@
-# React Lightning Boilerplate
+# React Salesforce Lightning Boilerplate
 
 Boilerplate code for deleveloping React components on Salesforce
 
