@@ -7699,7 +7699,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleGetAccounts", function () {
-      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.callApex('c.AccountService.getAccounts', _this.state.name, _this.handleAccountQueryResponse, {
+      lightning_container__WEBPACK_IMPORTED_MODULE_1___default.a.callApex('c.AccountService.getAccounts', _this.state.name, _this.handleAccountQueryResponse(result, event), {
         escape: true
       });
       console.log(_this.state);

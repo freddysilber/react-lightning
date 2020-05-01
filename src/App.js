@@ -45,7 +45,7 @@ export default class App extends React.Component {
     }
 
     handleGetAccounts = () => {
-        LCC.callApex('c.AccountService.getAccounts', this.state.name, this.handleAccountQueryResponse, { escape: true })
+        LCC.callApex('c.AccountService.getAccounts', this.state.name, this.handleAccountQueryResponse(), { escape: true })
         console.log(this.state)
     }
 
