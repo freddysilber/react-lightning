@@ -1,6 +1,18 @@
 ({
     doInit: function (component, event, helper) {
-        console.log('doinit')
+        const action = component.get('c.getAccounts')
+        action.setCallback(this, response => {
+            const state = response.getState()
+            console.log(state)
+            if (state === 'SUCCESS') {
+                console.log(response.getReturnValue())
+                component.set('v.accounts', response.getReturnValue())
+                console.log(component.get('v.accounts'))
+            } else {
+                console.log(response)
+            }
+        })
+        $A.enqueueAction(action)
     },
 
     handleMessage: function (component, event, helper) {
