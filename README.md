@@ -2,6 +2,8 @@
 
 Boilerplate code for deleveloping React components on Salesforce
 
+![Salesforce + React](http://coenraets.org/blog/wp-content/uploads/2014/12/react-salesforce.png "Salesforce React")
+
 ## Getting Started
 
 1. Fork and clone this repository
