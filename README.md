@@ -2,7 +2,9 @@
 
 Boilerplate code for deleveloping React components on Salesforce
 
+<center>
 ![Salesforce + React](http://coenraets.org/blog/wp-content/uploads/2014/12/react-salesforce.png "Salesforce React")
+<center/>
 
 ## Getting Started
 
