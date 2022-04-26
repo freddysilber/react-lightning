@@ -1,21 +1,26 @@
-import React from 'react'
-import LCC from 'lightning-container'
+import * as React from 'react'
+import * as LCC from 'lightning-container'
 import AccountsList from '../components/AccountsList'
 import { Button } from '@salesforce/design-system-react'
 
 export default class AccountContainer extends React.Component {
 	constructor() {
-		super()
+		super(null)
 		this.state = {
 			accounts: []
 		}
 	}
 
 	componentDidMount() {
-		LCC.callApex('AccountService.getAccounts', (result, event) => this.handleApexRequest(result, event)), { escape: true }
+		// @ts-ignore
+		LCC.callApex(
+			'AccountService.getAccounts',
+			// this.handleApexRequest
+			(result: any, event: any) => this.handleApexRequest(result, event)
+		), { escape: true };
 	}
 
-	handleApexRequest = (result, event) => {
+	handleApexRequest(result: any, event: { statusCode: number }) {
 		console.log(result, event)
 		if (event.statusCode >= 200 && event.statusCode < 300) {
 			this.setState({
@@ -27,11 +32,11 @@ export default class AccountContainer extends React.Component {
 	}
 
 	render() {
-		console.log('account container', this.state.accounts)
+		console.log('account container', (this.state as any).accounts)
 		return (
 			<>
 				<p>AccountContainer</p>
-				<AccountsList accounts={this.state.accounts} />
+				<AccountsList accounts={(this.state as any).accounts} />
 				<Button label="reLoad Accounts" />
 			</>
 		)

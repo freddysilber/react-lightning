@@ -1,13 +1,13 @@
-import React from 'react'
-import LCC from 'lightning-container'
+import * as React from 'react'
+import * as LCC from 'lightning-container'
 import './App.css'
-import TerminalScreen from './TerminalScreen.js'
+import TerminalScreen from './TerminalScreen'
 import Counter from './Counter'
 import AccountContainer from './containers/AccountContainer'
 
 export default class App extends React.Component {
 
-    constructor(props) {
+    constructor(props: any) {
         super(props)
         this.state = {
             message: ""
@@ -18,7 +18,7 @@ export default class App extends React.Component {
         LCC.addMessageHandler(this.messageRecievedHandler)
     }
 
-    messageRecievedHandler = msg => {
+    messageRecievedHandler = (msg: any) => {
         const { name, value } = msg
         console.log('Messaged received.', name, value)
         this.setState({
@@ -30,7 +30,7 @@ export default class App extends React.Component {
         return (
             <>
                 <h1>Here is a test title</h1>
-                <TerminalScreen text={this.state.message} />
+                <TerminalScreen text={(this.state as any).message} />
                 <Counter />
                 <AccountContainer />
             </>
