@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
     mode: "none",
     output: {
-        path: path.resolve(__dirname, "force-app/main/default/staticresources/ReactComponent")
+        path: path.resolve(__dirname, "force-app/main/default/staticresources/reactComponent")
     },
     module: {
         rules: [
