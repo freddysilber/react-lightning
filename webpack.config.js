@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-    mode: 'none',
+    mode: 'production',
     output: {
         path: path.resolve(__dirname, 'force-app/main/default/staticresources/reactComponent')
     },

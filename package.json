@@ -6,40 +6,28 @@
   "scripts": {
     "------------ SFDX ------------": "",
     "deploy": "npm run build && sfdx force:source:push",
-    "build": "webpack --config webpack.config.js",
-    "lint": "npm run lint:lwc",
-    "lint:lwc": "eslint force-app/main/default/lwc",
-    "test": "npm run test:unit",
-    "test:unit": "sfdx-lwc-jest",
-    "test:unit:watch": "sfdx-lwc-jest --watch",
-    "test:unit:debug": "sfdx-lwc-jest --debug",
-    "test:unit:coverage": "sfdx-lwc-jest --coverage"
+    "build": "webpack --config webpack.config.js"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@salesforce-ux/design-system": "^2.17.5",
     "@salesforce/babel-preset-design-system-react": "^3.0.0",
-    "@salesforce/eslint-config-lwc": "^0.4.0",
-    "@salesforce/sfdx-lwc-jest": "^0.7.0",
+    "@salesforce/design-system-react": "^0.10.46",
     "@types/react": "^18.0.8",
-    "babel-loader": "^8.0.0",
-    "css-loader": "^1.0.0",
-    "eslint": "^5.16.0",
-    "http-server": "^0.11.1",
-    "postcss-loader": "^2.1.6",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.16.1",
-    "webpack-cli": "^3.0.8"
-  },
-  "dependencies": {
-    "@salesforce-ux/design-system": "^2.11.9",
-    "@salesforce/design-system-react": "^0.10.19",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.14.0",
     "lightning-container": "^1.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "postcss-loader": "^6.2.1",
+    "react-dom": "^18.1.0",
+    "react": "^18.1.0",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^4.9.2",
+    "webpack": "^5.72.0"
   }
 }
