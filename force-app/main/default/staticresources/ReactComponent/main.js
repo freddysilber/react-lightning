@@ -9695,11 +9695,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var TerminalScreen = function TerminalScreen(props) {
+function TerminalScreen(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
     className: "terminal-window"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, props.text));
-};
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (TerminalScreen);
 
