@@ -8997,7 +8997,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("h1", null, "Here is a test title!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_TerminalScreen__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("h1", null, "Here is a test title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_TerminalScreen__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: this.state.message
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Counter__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_containers_AccountContainer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
