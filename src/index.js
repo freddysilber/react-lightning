@@ -4,6 +4,7 @@ import App from './App.tsx'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+	// Strict mode will cause components to render twice
 	<React.StrictMode>
 		<App />
 	</React.StrictMode>
