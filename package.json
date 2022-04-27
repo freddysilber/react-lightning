@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "description": "React on Salesforce boilerplate",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "------------ SFDX ------------": "",
     "deploy": "npm run build && sfdx force:source:push",
+    "build": "webpack --config webpack.config.js",
     "lint": "npm run lint:lwc",
     "lint:lwc": "eslint force-app/main/default/lwc",
     "test": "npm run test:unit",

@@ -9837,11 +9837,59 @@ var Counter = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lightning_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var lightning_container__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lightning_container__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 function AccountContainer(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      count = _useState2[0],
+      setCount = _useState2[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    console.log('react use effect'); // Update the document title using the browser API
+
+    document.title = "You clicked ".concat(count, " times"); // @ts-ignore
+
+    lightning_container__WEBPACK_IMPORTED_MODULE_1__["callApex"]('AccountService.getAccounts', // this.handleApexRequest
+    function (result, event) {
+      return handleApexRequest(result, event);
+    }), {
+      escape: true
+    };
+  });
+
+  function handleApexRequest(result, event) {
+    console.log('Get Accounts: ', result, event);
+
+    if (event.statusCode >= 200 && event.statusCode < 300) {// this.setState({
+      // 	accounts: result
+      // })
+    } else {
+      console.error('There was an error getting data from apex', event);
+    }
+  }
+
   console.log(props);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "Account Coontainer");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You clicked ", count, " times"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return setCount(count + 1);
+    }
+  }, "Click me"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "AccountContainer"));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (AccountContainer); // export default class AccountContainer extends React.Component {
@@ -9859,23 +9907,23 @@ function AccountContainer(props) {
 // 			(result: any, event: any) => this.handleApexRequest(result, event)
 // 		), { escape: true };
 // 	}
-// 	handleApexRequest(result: any, event: { statusCode: number }) {
-// 		console.log(result, event)
-// 		if (event.statusCode >= 200 && event.statusCode < 300) {
-// 			this.setState({
-// 				accounts: result
-// 			})
-// 		} else {
-// 			console.error('There was an error getting data from apex', event)
-// 		}
+// handleApexRequest(result: any, event: { statusCode: number }) {
+// 	console.log(result, event)
+// 	if (event.statusCode >= 200 && event.statusCode < 300) {
+// 		this.setState({
+// 			accounts: result
+// 		})
+// 	} else {
+// 		console.error('There was an error getting data from apex', event)
 // 	}
+// }
 // 	render() {
 // 		console.log('account container', (this.state as any).accounts)
 // 		return (
 // 			<>
-// 				<p>AccountContainer</p>
-// 				<AccountsList accounts={(this.state as any).accounts} />
-// 				<Button label="reLoad Accounts" />
+// <p>AccountContainer</p>
+// <AccountsList accounts={(this.state as any).accounts} />
+// <Button label="reLoad Accounts" />
 // 			</>
 // 		)
 // 	}
