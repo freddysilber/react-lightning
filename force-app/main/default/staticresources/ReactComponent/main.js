@@ -34579,9 +34579,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function AccountContainer() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      didRender = _useState2[0],
-      setDidRender = _useState2[1];
+      _useState2 = _slicedToArray(_useState, 1),
+      hasAccounts = _useState2[0];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -34590,7 +34589,7 @@ function AccountContainer() {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     getAccounts();
-  }, [didRender]);
+  }, [hasAccounts]);
 
   var getAccounts = function getAccounts() {
     // @ts-ignore
@@ -34607,7 +34606,7 @@ function AccountContainer() {
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "AccountContainer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AccountsList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "AccountContainer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AccountsList__WEBPACK_IMPORTED_MODULE_2__["default"], {
     accounts: accounts
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_salesforce_design_system_react__WEBPACK_IMPORTED_MODULE_3__["Button"], {
     label: "reLoad Accounts",
