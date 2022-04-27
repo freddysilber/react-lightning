@@ -1,34 +1,15 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 
-export default class Counter extends React.Component {
-	constructor() {
-		super(null, null)
-		this.state = {
-			count: 0
-		}
-	}
+function Counter() {
+	const [count, setCount] = useState(0);
 
-	handleUpvote = () => {
-		const count = (this.state as any).count + 1
-		this.setState({
-			count: count
-		})
-	}
-
-	handleDownvote = () => {
-		const count = (this.state as any).count - 1
-		this.setState({
-			count: count
-		})
-	}
-
-	render() {
-		return (
-			<>
-				<h1>Count: {(this.state as any).count}</h1>
-				<button className="slds-button" onClick={this.handleUpvote}>+</button>
-				<button className="slds-button" onClick={this.handleDownvote}>-</button>
-			</>
-		)
-	}
+	return (
+		<>
+			<h1>Count: {count}</h1>
+			<button className="slds-button" onClick={() => setCount(count + 1)}>+</button>
+			<button className="slds-button" onClick={() => setCount(count - 1)}>-</button>
+		</>
+	)
 }
+
+export default Counter;

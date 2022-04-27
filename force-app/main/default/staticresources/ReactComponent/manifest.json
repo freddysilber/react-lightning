@@ -1,10 +1,10 @@
 {
-	"landing-pages": [
-		{
-			"path": "index.html",
-			"apex-controller": "AccountService"
-		}
-	],
-	"content-security-policy-type": "lightning",
-	"content-security-policy": "default-src *;"
+    "landing-pages": [
+        {
+            "path": "index.html",
+            "apex-controller": "AccountService"
+        }
+    ],
+    "content-security-policy-type": "lightning",
+    "content-security-policy": "default-src *;"
 }
